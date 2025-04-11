@@ -1,6 +1,11 @@
 @CatAPI_HostAddress = http://localhost:5181
 
-GET {{CatAPI_HostAddress}}/weatherforecast/
-Accept: application/json
+### Create a new cat
+POST {{CatAPI_HostAddress}}/api/cats
+Content-Type: application/json
 
-###
+{
+    "name": "Wiskas",
+    "breed": "Siamese",
+    "age": 5
+}

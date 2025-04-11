@@ -29,5 +29,13 @@ namespace CatAPI.Controllers
             if(cat == null) return NotFound();
             return cat;
         }
+
+        [HttpPost]
+        public async Task<ActionResult<Cat>> CreateCat(Cat cat)
+        {
+            _context.Cats.Add(cat);
+            await _context.SaveChangesAsync();
+            return CreatedAtAction(nameof(GetCat), new { id = cat.Id }, cat);
+        }
     }
 }
