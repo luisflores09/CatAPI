@@ -21,5 +21,13 @@ namespace CatAPI.Controllers
         {
             return await _context.Cats.ToListAsync();
         }
+        
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Cat>> GetCat(int id)
+        {
+            var cat = await _context.Cats.FindAsync(id);
+            if(cat == null) return NotFound();
+            return cat;
+        }
     }
 }
