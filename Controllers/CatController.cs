@@ -37,5 +37,14 @@ namespace CatAPI.Controllers
             await _context.SaveChangesAsync();
             return CreatedAtAction(nameof(GetCat), new { id = cat.Id }, cat);
         }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateCat(int id, Cat cat)
+        {
+            if(id != cat.Id) return BadRequest();
+            _context.Entry(cat).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+            return NoContent();
+        }
     }
 }

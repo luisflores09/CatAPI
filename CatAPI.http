@@ -9,3 +9,20 @@ Content-Type: application/json
     "breed": "Siamese",
     "age": 5
 }
+
+### Get all cats
+GET {{CatAPI_HostAddress}}/api/cats
+
+### Get a specific Cat by ID
+GET {{CatAPI_HostAddress}}/api/cats/1
+
+### Update a Cat by ID
+PUT {{CatAPI_HostAddress}}/api/cats/1
+Content-Type: application/json
+
+{
+    "id": 1,
+    "name": "Whiskers",
+    "breed": "Persian",
+    "age": 4
+}
